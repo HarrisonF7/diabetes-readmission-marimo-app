@@ -1,5 +1,3 @@
-
-
 # GitHub repository: https://github.com/HarrisonF7/diabetes-readmission-marimo-app
 
 import marimo
@@ -973,7 +971,6 @@ def _(
     print("Random Forest: Training Cross-Validation Thresholds")
     print("---------------------------------------------------")
     print(rf_threshold_table.to_string(index=False))
-
     return rf_cv, rf_train_groups
 
 
@@ -1128,79 +1125,50 @@ def _(mo):
 
     ### Comparison of Classification Models
 
-    Three classification models were trained and evaluated to predict
-    30-day hospital readmission among patients with diabetes:
-    Logistic Regression, Random Forest, and Gradient Boosting.
+    Three classification models were trained and evaluated to predict 30-day hospital readmission among patients with diabetes: Logistic Regression, Random Forest, and Gradient Boosting.
 
-    Five-fold, patient-grouped cross-validation was performed using
-    the training dataset to compare model discrimination.
+    Five-fold, patient-grouped cross-validation was performed using the training dataset to compare model discrimination.
 
-    Random Forest achieved the highest mean cross-validation AUROC
-    (0.6421), followed by Gradient Boosting (0.6399) and Logistic
-    Regression (0.6369). Random Forest also had the lowest
-    cross-validation standard deviation (0.0047).
+    Random Forest achieved the highest mean cross-validation AUROC (0.6412), followed by Gradient Boosting (0.6395) and Logistic Regression (0.6367). The cross-validation standard deviations were similar across models, ranging from approximately 0.0120 to 0.0128.
 
-    Based on these training-data validation results, Random Forest
-    was selected as the preferred classification model.
+    Based on these training-data validation results, Random Forest was selected as the preferred classification model.
 
-    On the independent testing dataset, Random Forest achieved
-    an AUROC of 0.6352, compared with 0.6329 for Gradient
-    Boosting and 0.6289 for Logistic Regression.
+    On the independent testing dataset, Random Forest achieved an AUROC of 0.6352, compared with 0.6329 for Gradient Boosting and 0.6289 for Logistic Regression.
 
-    Although Random Forest performed best, the differences
-    between models were small and do not establish statistical
-    superiority.
+    Although Random Forest performed best, the differences between models were small and do not establish statistical superiority.
 
     ### Classification Threshold Selection
 
-    At the default classification threshold of 0.50, all three
-    models demonstrated very low sensitivity. Random Forest
-    identified no actual readmissions at this threshold.
+    At the default classification threshold of 0.50, all three models demonstrated very low sensitivity. Random Forest identified no actual readmissions at this threshold.
 
-    A lower threshold of 0.12 was selected for Random Forest
-    using five-fold, patient-grouped cross-validation on the
-    training dataset.
+    A lower threshold of 0.12 was selected for Random Forest using five-fold, patient-grouped cross-validation on the training dataset.
 
-    At this threshold, training cross-validation produced
-    49.86% sensitivity and 69.89% specificity.
+    At this threshold, training cross-validation produced 49.86% sensitivity and 69.89% specificity.
 
-    The threshold was selected to prioritize identifying
-    approximately half of actual readmissions while retaining
-    reasonable specificity.
+    The threshold was selected to prioritize identifying approximately half of actual readmissions while retaining reasonable specificity.
 
-    This choice reflects the potential value of identifying
-    patients who may benefit from additional discharge planning
-    or follow-up, while acknowledging the increased number
-    of false positives.
+    This choice reflects the potential value of identifying patients who may benefit from additional discharge planning or follow-up, while acknowledging the increased number of false positives.
 
     ### Final Random Forest Performance
 
-    Using the selected 0.12 threshold, Random Forest achieved
-    the following results on the independent testing dataset:
+    Using the selected 0.12 threshold, Random Forest achieved the following results on the independent testing dataset:
 
-    - Accuracy: 67.70%
-    - Sensitivity: 47.88%
-    - Specificity: 70.20%
+    - Accuracy: 67.82%
+    - Sensitivity: 47.56%
+    - Specificity: 70.37%
     - AUROC: 0.6352
 
-    The model correctly identified 1,061 of the 2,216 actual
-    30-day readmissions but also produced 5,241 false positives.
+    The model correctly identified 1,054 of the 2,216 actual 30-day readmissions but also produced 5,211 false positives.
 
     ### Interpretation
 
-    Random Forest was selected based on its highest mean
-    cross-validation AUROC among the three models.
+    Random Forest was selected based on its highest mean cross-validation AUROC among the three models.
 
-    The independent testing results supported this selection,
-    although overall predictive discrimination remained modest.
+    The independent testing results supported this selection, although overall predictive discrimination remained modest.
 
-    The model's limited sensitivity and substantial number
-    of false positives prevent it from being appropriate
-    for independent clinical decision-making.
+    The model's limited sensitivity and substantial number of false positives prevent it from being appropriate for independent clinical decision-making.
 
-    Its predictions may be more useful as supplementary
-    information for discharge planning and follow-up review,
-    rather than as a replacement for clinical judgment.
+    Its predictions may be more useful as supplementary information for discharge planning and follow-up review, rather than as a replacement for clinical judgment.
     """)
     return
 
@@ -1212,65 +1180,39 @@ def _(mo):
 
     ### Research Question
 
-    How accurately can patient demographics, hospitalization history,
-    and clinical characteristics predict 30-day hospital readmission
-    among patients with diabetes?
+    How accurately can patient demographics, hospitalization history, and clinical characteristics predict 30-day hospital readmission among patients with diabetes?
 
     ### Main Findings
 
-    Using 99,343 eligible hospital encounters, we developed and
-    evaluated three classification models: Logistic Regression,
-    Random Forest, and Gradient Boosting.
+    Using 99,343 eligible hospital encounters, we developed and evaluated three classification models: Logistic Regression, Random Forest, and Gradient Boosting.
 
-    Random Forest achieved the highest test AUROC of 0.6352,
-    although all three models demonstrated relatively modest
-    predictive discrimination.
+    Random Forest achieved the highest test AUROC of 0.6352, although all three models demonstrated relatively modest predictive discrimination.
 
-    After selecting a classification threshold of 0.12 using
-    training-data cross-validation, Random Forest identified
-    47.88% of actual 30-day readmissions in the testing dataset,
-    with 70.20% specificity and 67.70% accuracy.
+    After selecting a classification threshold of 0.12 using training-data cross-validation, Random Forest identified 47.56% of actual 30-day readmissions in the testing dataset, with 70.37% specificity and 67.82% accuracy.
 
     ### Clinical Significance
 
-    These findings suggest that routinely collected patient
-    information provides some ability to distinguish between
-    encounters with and without 30-day readmission.
+    These findings suggest that routinely collected patient information provides some ability to distinguish between encounters with and without 30-day readmission.
 
-    However, the model missed approximately 52% of actual
-    readmissions and produced a substantial number of false
-    positives.
+    However, the model missed approximately 52% of actual readmissions and produced a substantial number of false positives.
 
-    Therefore, the model should not be used independently to
-    make clinical decisions. It may have potential as a
-    supplementary tool for identifying patients who could
-    benefit from additional discharge planning or follow-up.
+    Therefore, the model should not be used independently to make clinical decisions. It may have potential as a supplementary tool for identifying patients who could benefit from additional discharge planning or follow-up.
 
     ### Limitations
 
-    - The dataset contains hospital encounters from 1999 to 2008,
-      which may limit applicability to current healthcare settings.
-    - Some clinical variables were unavailable or had substantial
-      missing information, including HbA1c results.
+    - The dataset contains hospital encounters from 1999 to 2008, which may limit applicability to current healthcare settings.
+    - Some clinical variables were unavailable or had substantial missing information, including HbA1c results.
     - The models demonstrated only modest discrimination.
-    - The selected threshold involves a tradeoff between detecting
-      readmissions and incorrectly flagging patients.
-    - External validation would be necessary before considering
-      clinical implementation.
+    - The selected threshold involves a tradeoff between detecting readmissions and incorrectly flagging patients.
+    - External validation would be necessary before considering clinical implementation.
 
     ### Overall Conclusion
 
-    Patient demographics, hospitalization history, and clinical
-    characteristics can predict 30-day hospital readmission
-    better than random chance, but predictive performance
-    remains limited.
+    Patient demographics, hospitalization history, and clinical characteristics can predict 30-day hospital readmission better than random chance, but predictive performance remains limited.
 
-    Random Forest was the strongest-performing model by test
-    AUROC in this analysis, although its advantage over
-    Logistic Regression and Gradient Boosting was small.
+    Random Forest was the strongest-performing model by test AUROC in this analysis, although its advantage over Logistic Regression and Gradient Boosting was small.
 
-    Additional predictors, model refinement, and external
-    validation would be needed to improve clinical usefulness.
+    Additional predictors, model refinement, and external validation would be needed to improve clinical usefulness.
     """)
     return
 
