@@ -2,7 +2,7 @@
 
 import marimo
 
-__generated_with = "0.25.2"
+__generated_with = "0.25.1"
 app = marimo.App()
 
 
@@ -10,6 +10,16 @@ app = marimo.App()
 def _(mo):
     mo.md(r"""
     # Predicting 30-Day Hospital Readmission Among Patients With Diabetes
+
+    ## Group Members
+
+    - Harrison Furman
+    - Thomas Raulerson
+    - Serban Negoita
+
+    ## GitHub Repository
+
+    https://github.com/HarrisonF7/diabetes-readmission-marimo-app
 
     ## Research Question
 
