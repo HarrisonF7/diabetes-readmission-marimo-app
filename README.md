@@ -1,5 +1,11 @@
 # Predicting 30-Day Hospital Readmission Among Patients With Diabetes
 
+## Group Members
+
+- Harrison Furman
+- Thomas Raulerson
+- Serban Negoita
+
 ## Project Overview
 
 This project examines how accurately patient demographics, hospitalization history, and clinical characteristics can predict hospital readmission within 30 days among patients with diabetes.
