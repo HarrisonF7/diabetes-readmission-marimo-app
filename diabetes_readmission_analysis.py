@@ -2,7 +2,7 @@
 
 import marimo
 
-__generated_with = "0.25.1"
+__generated_with = "0.25.2"
 app = marimo.App()
 
 
@@ -1153,7 +1153,7 @@ def _(mo):
 
     A lower threshold of 0.12 was selected for Random Forest using five-fold, patient-grouped cross-validation on the training dataset.
 
-    At this threshold, training cross-validation produced 49.86% sensitivity and 69.89% specificity.
+    At this threshold, training cross-validation produced 49.07% sensitivity and 70.18% specificity.
 
     The threshold was selected to prioritize identifying approximately half of actual readmissions while retaining reasonable specificity.
 
