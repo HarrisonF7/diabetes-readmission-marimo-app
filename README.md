@@ -109,6 +109,8 @@ The model may have potential as a supplementary tool to help identify patients w
 
 The complete analysis is available in the [`diabetes_readmission_analysis.py`](diabetes_readmission_analysis.py) file in this repository.
 
+The notebook was verified using Python 3.12, Marimo 0.25.2, and pandas 3.1.1. Use the pandas 3.1.1 version specified in `requirements.txt`: the notebook's categorical-column selection is incompatible with pandas 2.2.3.
+
 To run the notebook locally:
 
 1. Clone or download this GitHub repository:
@@ -123,17 +125,17 @@ To run the notebook locally:
    cd diabetes-readmission-marimo-app
    ```
 
-3. Install the required Python packages:
+3. Install the required Python packages from `requirements.txt`:
 
    ```bash
-   pip install marimo pandas scikit-learn matplotlib
+   python -m pip install -r requirements.txt
    ```
 
-4. Download the dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008).
+   If your system uses `python3` instead of `python`, use `python3 -m pip install -r requirements.txt`.
 
-   Place the `diabetic_data.csv` file in the project folder alongside the Marimo notebook.
+4. Confirm that `diabetic_data.csv` is in the project folder alongside the notebook. The dataset is included in this repository. If needed, download it from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) and extract the CSV into the project folder.
 
-5. Launch the notebook:
+5. Launch the notebook from the project folder:
 
    ```bash
    marimo edit diabetes_readmission_analysis.py
@@ -162,3 +164,4 @@ Users can explore model performance, adjust classification thresholds, examine c
 ## GitHub Repository
 
 [Diabetes Readmission Prediction Project](https://github.com/HarrisonF7/diabetes-readmission-marimo-app)
+````
