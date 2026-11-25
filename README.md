@@ -147,7 +147,7 @@ The interactive application presents our research question, dataset, analysis pr
 
 Users can explore model performance, adjust classification thresholds, examine confusion matrices, and compare predictions for a hypothetical patient.
 
-Launch the Interactive App
+**[Launch the Interactive App](https://harrisonf7.github.io/diabetes-readmission-marimo-app/)**
 
 ## Technologies Used
 
