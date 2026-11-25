@@ -143,11 +143,11 @@ The notebook will open in your browser, where you can run the analysis and revie
 
 ## Interactive GitHub Pages App
 
-An interactive GitHub Pages application will present the research question, dataset, analysis process, model comparisons, and final results.
+The interactive application presents our research question, dataset, analysis process, classification model comparisons, threshold selection, and final results.
 
-The app will include interactive visualizations to help users explore the findings.
+Users can explore model performance, adjust classification thresholds, examine confusion matrices, and compare predictions for a hypothetical patient.
 
-**App link:** To be added after deployment.
+Launch the Interactive App
 
 ## Technologies Used
 
